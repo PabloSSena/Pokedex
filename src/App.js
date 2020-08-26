@@ -15,7 +15,7 @@ function App() {
 
       <body>
         <pokedexfilter>
-          <h1>Qual pokemon deseja encontrar?</h1>
+          <h1>Qual pokemon deseja<br/> encontrar?</h1>
           <inputcontrol>
             <InputGroup className="mb-3">
             <FormControl
