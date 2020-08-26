@@ -20,7 +20,11 @@ export default class Pokemons extends React.Component{
                 {this.state.pokemon ? (
                     <container>
                         {this.state.pokemon.map(pokemon => (
-                            <CardPokemon/>
+                            <CardPokemon
+                                key={pokemon.name}
+                                nomePokemon = {pokemon.name}
+                                imgURL = {pokemon.url}
+                            />
                         ))} 
                      </container>     
                 ) :

@@ -5,14 +5,21 @@ import './styles.css'
 
 
 export default class CardPokemon extends React.Component{
+    state = {
+        nomePokemon: '',
+        imgURL:'',
+        indexPokemon:''
+    };
     render(){
+        const nomePokemon = this.props.nomePokemon;
+        const imgURL = this.props.imgURL;
     return(
     <>    
         <container>
             <Card style={{ width: '15rem'}}>
              <Card.Img variant="top" src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png" />
              <Card.Body>
-                 <Card.Title>Bulbasauro</Card.Title>
+                    <Card.Title>{nomePokemon}</Card.Title>
                     <Card.Text>
                         Pokemon inicial
                     </Card.Text>
