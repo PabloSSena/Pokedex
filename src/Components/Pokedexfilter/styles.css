@@ -28,6 +28,10 @@ Button{
 	font-family: 'Russo One', sans-serif !important;
 }
 
+Button:hover{
+    background-color:#FF4500 !important;
+}
+
 @media(max-width:430px){
     pokedexfilter h1{
         font-size: 30px;
