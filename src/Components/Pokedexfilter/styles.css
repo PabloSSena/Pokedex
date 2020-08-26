@@ -22,6 +22,12 @@ pokedexfilter h1{
 	font-family: 'Russo One', sans-serif;
 }
 
+Button{
+    background-color: #ef5350 !important;
+    color:black !important;
+	font-family: 'Russo One', sans-serif !important;
+}
+
 @media(max-width:430px){
     pokedexfilter h1{
         font-size: 30px;
