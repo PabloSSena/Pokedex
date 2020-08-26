@@ -1,5 +1,23 @@
+container{
+    margin-top: 100px;
+    display: grid;
+    grid-template-areas: "card  card2  card3";
+    justify-content: space-evenly;
+    align-content: space-evenly;
+}
+
+card2{
+    grid-area: card2;
+}
+
+card3{
+    grid-area: card3;
+}
 .card{
     height: 60vh !important;
+    background-color: #fff0 !important;
+    border: 0 !important;
+    grid-area: card;
 }
 
 .card-img, .card-img-bottom, .card-img-top{
@@ -9,7 +27,4 @@
 .card-body{
     text-align: center !important;
     padding: 0 !important;
-}
-container{
-    width: 100vw;
 }
