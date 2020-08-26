@@ -15,11 +15,11 @@ function App() {
 
       <body>
         <pokedexfilter>
+          <h1>Qual pokemon deseja encontrar?</h1>
           <inputcontrol>
-            <h1>Qual pokemon deseja encontrar?</h1>
             <InputGroup className="mb-3">
             <FormControl
-            placeholder="Nome do pokemn"
+            placeholder="Nome do pokemon"
             aria-label="Nome do pokemon"
             aria-describedby="basic-addon2"
             />
@@ -30,7 +30,7 @@ function App() {
           </inputcontrol>  
         </pokedexfilter>
       </body>
-    </>
+    </>  
   );
 }
 
