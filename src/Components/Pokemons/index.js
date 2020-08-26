@@ -9,17 +9,24 @@ export default class Pokemons extends React.Component{
         pokemon:null
     }
 
-    componentDidMount(){
-
+    async componentDidMount(){
+        const response = await axios.get(this.state.url);
+        this.setState({pokemon:response.data['results']});
     }
 
     render(){
         return(
-            <container>
-                    <CardPokemon/>
-                    <CardPokemon/>
-                    <CardPokemon/>         
-            </container>   
+            <>
+                {this.state.pokemon ? (
+                    <container>
+                        {this.state.pokemon.map(pokemon => (
+                            <CardPokemon/>
+                        ))} 
+                     </container>     
+                ) :
+                (<h1>Teste para falha</h1>)}    
+            </>    
+             
   
     );
     }
