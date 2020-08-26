@@ -1,15 +1,28 @@
 import React from 'react';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import './styles.css'
+
 
 function CardPokemon(){
     return(
-        <div className="col-md-3 col-sm-6 nb-5">
-            <card>
-                <header>
-                    <h1>Teste</h1>
-                </header>
-            </card>
+    <>    
+        <container>
+            <Card style={{ width: '15rem'}}>
+
+             <Card.Img variant="top" src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png" />
+             <Card.Body>
+                 <Card.Title>Bulbasauro</Card.Title>
+                    <Card.Text>
+                        Pokemon inicial
+                    </Card.Text>
+                    <Button variant="primary">Mais info</Button>
+                </Card.Body>
+            </Card>    
+
         
-        </div>  
+        </container>
+    </>      
     );
 
 }

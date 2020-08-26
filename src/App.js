@@ -13,8 +13,9 @@ function App() {
 
       <body>
         <Pokedexfilter/>
-
+        
         <Pokemons/>
+
       </body>
     </>  
   );

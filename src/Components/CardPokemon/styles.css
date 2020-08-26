@@ -1,0 +1,15 @@
+.card{
+    height: 60vh !important;
+}
+
+.card-img, .card-img-bottom, .card-img-top{
+    height: 40vh !important;
+}
+
+.card-body{
+    text-align: center !important;
+    padding: 0 !important;
+}
+container{
+    width: 100vw;
+}
