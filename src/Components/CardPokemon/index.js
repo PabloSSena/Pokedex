@@ -4,7 +4,8 @@ import Button from 'react-bootstrap/Button';
 import './styles.css'
 
 
-function CardPokemon(){
+export default class CardPokemon extends React.Component{
+    render(){
     return(
     <>    
         <container>
@@ -21,7 +22,6 @@ function CardPokemon(){
         </container>
     </>      
     );
+    }
 
 }
-
-export default CardPokemon;
