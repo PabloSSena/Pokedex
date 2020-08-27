@@ -4,6 +4,8 @@
     border: 0 !important;
     align-items: center !important;
     cursor: pointer;
+	font-family: 'Russo One', sans-serif;
+
 }
 
 .card-img, .card-img-bottom, .card-img-top{

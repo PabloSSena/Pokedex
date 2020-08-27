@@ -8,24 +8,22 @@ export default class CardPokemon extends React.Component{
     state = {
         nomePokemon: '',
         imageurl:'',
-        indexPokemon:'',
-        type:''
+        indexPokemon:''     
     };
 
     componentDidMount(){
         const nomePokemon = this.props.nomePokemon;
         const imgURL = this.props.imgURL;
+     
         
         const indexPokemon = imgURL.split('/')[6];
-        const imageurl = `https://pokeres.bastionbot.org/images/pokemon/${indexPokemon}.png`
-        const type = `https://pokeapi.co/api/v2/type/${indexPokemon}/`
+        const imageurl = `https://pokeres.bastionbot.org/images/pokemon/${indexPokemon}.png` 
        
         this.setState({
 
             nomePokemon, 
             imageurl,
             indexPokemon,
-            type
         });
     }
 
@@ -42,7 +40,7 @@ export default class CardPokemon extends React.Component{
              <Card.Body>
                     <Card.Title>{this.state.nomePokemon}</Card.Title>
                     <Card.Text>
-                        {this.state.type}
+                        
                     </Card.Text>
                     <Button variant="primary">Mais info</Button>
                 </Card.Body>
