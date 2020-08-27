@@ -2,6 +2,7 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import './styles.css'
+import { Link } from 'react-router-dom';
 
 
 export default class CardPokemon extends React.Component{
@@ -32,19 +33,21 @@ export default class CardPokemon extends React.Component{
     return(
     <>    
         <container>
-            <Card style={{ width: '15rem'}}>                
-             <Card.Img                 
-                variant="top"
-                src={this.state.imageurl}
-                />
-             <Card.Body>
-                    <Card.Title>{this.state.nomePokemon}</Card.Title>
-                    <Card.Text>
-                        
-                    </Card.Text>
-                    <Button variant="primary">Mais info</Button>
-                </Card.Body>
-            </Card>         
+            <Link to={`pokemoninfo/${this.state.indexPokemon}`}>
+                <Card style={{ width: '15rem'}}>                
+                <Card.Img                 
+                    variant="top"
+                    src={this.state.imageurl}
+                    />
+                <Card.Body>
+                        <Card.Title>{this.state.nomePokemon}</Card.Title>
+                        <Card.Text>
+                                                
+                        </Card.Text>
+                        <Button variant="primary">Mais info</Button>
+                    </Card.Body>
+                </Card>
+            </Link>         
         </container>
     </>      
     );
