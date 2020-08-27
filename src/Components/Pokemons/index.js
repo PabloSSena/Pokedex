@@ -8,12 +8,20 @@ export default class Pokemons extends React.Component{
     state = {
         url: "https://pokeapi.co/api/v2/pokemon/?limit=891",
         pokemon:null,
+        pokebola:''
     }
 
     async componentDidMount(){
-        const response = await axios.get(this.state.url);
-        this.setState({pokemon:response.data['results']});
+        const response = await axios.get(this.state.url)
+
+        this.setState({
+            pokemon:response.data['results'],  
+        });
+
+        
     }
+
+    
 
     render(){
         return(
@@ -31,7 +39,13 @@ export default class Pokemons extends React.Component{
                         </container>   
                     </Animated>      
                 ) :
-                (<h1>Carregando</h1>)}    
+                (
+                <div className="carregando">
+                   <Animated  animationIn="bounce" >
+                    <h1>Capturando pokemons</h1>
+                    </Animated>  
+                </div>
+                )}    
             </>    
              
   

@@ -9,6 +9,12 @@ h1{
     color: red;
 }
 
+.carregando{
+    text-align: center;
+	font-family: 'Russo One', sans-serif;
+    margin-top: 100px;
+}
+
 container:hover{
     animation: bounce;
     animation-duration: 1s;
