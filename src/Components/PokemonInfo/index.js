@@ -18,7 +18,12 @@ export default class PokemonInfo extends React.Component{
             velocidade:'',
             ataqEspecial:'',
             defEspecial:''
-        }
+        },
+        height:'',
+        weight:'',
+        eggGroup:'',
+        abilities:''
+    
     }
     async componentDidMount(){
         const {pokemonIndex} = this.props.match.params;
@@ -32,6 +37,35 @@ export default class PokemonInfo extends React.Component{
         const imageurl = `https://pokeres.bastionbot.org/images/pokemon/${pokemonIndex}.png` 
 
         let {hp,ataque,defesa,velocidade,ataqEspecial,defEspecial} = '';
+
+        infoResponse.data.stats.map(stat => {
+            switch(stat.stat.name){
+                case 'hp':
+                    hp = stat['base_stat'];
+                break;
+
+                case 'attack':
+                    ataque = stat['base_stat'];
+                break;
+                    
+                case 'defense':
+                    defesa = stat['base_stat'];
+                break;
+                
+                case 'speed':
+                    velocidade = stat['base_stat'];
+                    break;
+                
+                case 'special-attack':
+                    ataqEspecial = stat['base_stat'];
+                break;    
+                
+                case 'special-defense':
+                    defEspecial = stat['base_stat'];
+                break;
+            
+            }
+        })
     }
     render(){
         return(
