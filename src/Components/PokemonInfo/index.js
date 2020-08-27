@@ -1,9 +1,12 @@
 import React from 'react';
+import '../../styles/global.css';
+import './styles.css';
+import Header from '../Header';
 
 export default class PokemonInfo extends React.Component{
     render(){
         return(
-            <h1>teste</h1>
+            <Header/>
         );
     }
 }
