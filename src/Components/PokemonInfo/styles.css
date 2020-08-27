@@ -5,23 +5,26 @@
     margin-top: 60px;
     display: grid;
     grid-template-columns:1fr;
-    grid-template-rows: 50vh;
+    grid-template-rows: 80vh;
     width: 50vh;
- 
-    background-color: #CDC9C9;
+    border-radius: 20px;
 }
 
 .info{
     display: flex;
     flex-direction: column;
+    text-align: center;
+	font-family: 'Russo One', sans-serif;
+
 }
 .info .card{
-    margin-left: 90px;
+    display: flex;
+    width: 20vw;
+    justify-content: flex-start;
     position: absolute;
     z-index: 1;
     top: 60px;
     cursor:unset;
-   
 }
 
 .info .card-img, .card-img-bottom, .card-img-top {
@@ -30,6 +33,12 @@
 }
 
 .info h1{
-    /* display: grid; */
-    grid-area: header;
+    text-shadow: 1px 1px black;
+   color: white;
+}
+
+.info h4{
+    display: flex;
+    justify-content: end;
+    opacity: 0.5;    
 }
