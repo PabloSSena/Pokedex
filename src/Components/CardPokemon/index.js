@@ -8,16 +8,19 @@ export default class CardPokemon extends React.Component{
     state = {
         nomePokemon: '',
         imageurl:'',
-        indexPokemon:''
+        indexPokemon:'',
+        imageLoading:false,
+        toManyRequests:false
     };
 
     componentDidMount(){
         const nomePokemon = this.props.nomePokemon;
         const imgURL = this.props.imgURL;
-
-        const indexPokemon = imgURL.split('/')[6];
-        const imageurl = `https://github.com/PokeAPI/sprites/tree/master/sprites/pokemon${indexPokemon}.png`
         
+        const indexPokemon = imgURL.split('/')[6];
+        const imageurl = `https://pokeres.bastionbot.org/images/pokemon/${indexPokemon}.png`
+      
+       
         this.setState({
 
             nomePokemon, 
@@ -31,8 +34,13 @@ export default class CardPokemon extends React.Component{
     return(
     <>    
         <container>
-            <Card style={{ width: '15rem'}}>
-             <Card.Img variant="top" src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png" />
+            <Card style={{ width: '15rem'}}>                
+             <Card.Img                 
+                variant="top"
+                onLoad={() => this.setState({imageLoading:true})}
+                onError={() => this.setState({toManyRequests:true})}
+                src={this.state.imageurl}
+                />
              <Card.Body>
                     <Card.Title>{this.state.nomePokemon}</Card.Title>
                     <Card.Text>

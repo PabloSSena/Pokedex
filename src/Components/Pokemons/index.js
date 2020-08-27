@@ -5,8 +5,8 @@ import './styles.css'
 
 export default class Pokemons extends React.Component{
     state = {
-        url: "https://pokeapi.co/api/v2/pokemon/",
-        pokemon:null
+        url: "https://pokeapi.co/api/v2/pokemon/?limit=891",
+        pokemon:null,
     }
 
     async componentDidMount(){
@@ -28,7 +28,7 @@ export default class Pokemons extends React.Component{
                         ))} 
                      </container>     
                 ) :
-                (<h1>Teste para falha</h1>)}    
+                (<h1>Carregando</h1>)}    
             </>    
              
   
