@@ -1,10 +1,10 @@
 import React from 'react';
-import '../../styles/global.css';
-import './styles.css';
 import Header from '../Header';
 import Axios from 'axios';
 import Card from 'react-bootstrap/Card';
 import ProgressBar from 'react-bootstrap/ProgressBar'
+import './styles.css';
+
 
 const CoresPraCadaTipo = {
     bug: 'B1C12E',
@@ -160,20 +160,11 @@ export default class PokemonInfo extends React.Component{
                         <ProgressBar variant="info" now={this.state.stats.speed} />
 
                         <h4>Habilidades</h4>
-                        if({this.state.abilities[1] == null}){
-                            
-                            <div className='habilidades'>
-                                <h3>{this.state.abilities[0]}</h3>
-                            </div>
+                        <div className='habilidades'>
+                            <h3>{this.state.abilities[0]}</h3>
+                            <h3>{this.state.abilities[1]}</h3>
+                        </div>
 
-                        }
-                        else{
-                            <div className='habilidades'>
-                                <h3>{this.state.abilities[0]}</h3>
-                                <h3>{this.state.abilities[1]}</h3>
-                            </div>
-
-                        }
                     </div>    
                 </div>
             ))}

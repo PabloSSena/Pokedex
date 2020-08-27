@@ -6,7 +6,7 @@ import './styles.css'
 
 export default class Pokemons extends React.Component{
     state = {
-        url: "https://pokeapi.co/api/v2/pokemon/?limit=891",
+        url: "https://pokeapi.co/api/v2/pokemon/?limit=20",
         typeurl:"https://pokeapi.co/api/v2/type/",
         pokemon:null
         

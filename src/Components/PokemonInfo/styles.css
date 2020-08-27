@@ -90,3 +90,35 @@
     display: flex;
     opacity: 0;
 }
+
+@media(max-width:420px){
+    .info .card{
+        width: 86vw;
+    }
+
+    .container{
+        width: 90vw;
+    }
+
+    .info h5{
+        font-size: 144%;
+        text-shadow: none;
+    }
+
+    .info .tipos span{
+        text-shadow: none;
+    }
+
+    .badge {
+        font-size: 213% !important;
+    }
+
+    .info h4{
+        font-size: 250%;
+    }
+
+    .habilidades h3{
+        font-size: 165%;
+    }
+
+}   

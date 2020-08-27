@@ -1,9 +1,8 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import './stylesCard.css'
 import { Link } from 'react-router-dom';
-
+import './stylesCard.css'
 
 export default class CardPokemon extends React.Component{
     state = {
