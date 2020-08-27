@@ -1,4 +1,4 @@
-import React,{ImageBackground} from 'react';
+import React from 'react';
 import '../../styles/global.css';
 import './styles.css';
 import Header from '../Header';
@@ -149,6 +149,31 @@ export default class PokemonInfo extends React.Component{
 
                         <h5>Hp:{this.state.stats.hp}</h5>
                         <ProgressBar variant="success" now={this.state.stats.hp} />
+
+                        <h5>Ataque:{this.state.stats.attack}</h5>
+                        <ProgressBar variant="danger" now={this.state.stats.attack} />
+
+                        <h5>Defesa:{this.state.stats.defense}</h5>
+                        <ProgressBar variant="warning" now={this.state.stats.defense} />
+
+                        <h5>Velocidade:{this.state.stats.speed}</h5>
+                        <ProgressBar variant="info" now={this.state.stats.speed} />
+
+                        <h4>Habilidades</h4>
+                        if({this.state.abilities[1] == null}){
+                            
+                            <div className='habilidades'>
+                                <h3>{this.state.abilities[0]}</h3>
+                            </div>
+
+                        }
+                        else{
+                            <div className='habilidades'>
+                                <h3>{this.state.abilities[0]}</h3>
+                                <h3>{this.state.abilities[1]}</h3>
+                            </div>
+
+                        }
                     </div>    
                 </div>
             ))}

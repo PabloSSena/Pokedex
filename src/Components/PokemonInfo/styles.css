@@ -37,8 +37,15 @@
    color: white;
 }
 
+.info h4{
+    text-shadow: 1px 1px black;
+    color: white;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
 .info h6{
-    font-size: 75%;
+    font-size: 80%;
     margin-top: 5px;
     display: flex;
     justify-content: flex-start;
@@ -46,6 +53,7 @@
 }
 
 .info h5{
+    margin-top: 10px;
     display: flex;
     font-size: 90%;
     text-shadow: 1px 1px black;
@@ -63,6 +71,19 @@
 
 .progress{
     height: 0.5rem !important; 
+}
+
+.habilidades{
+    text-shadow: 1px 1px black;
+    color: white;
+    justify-content: left;
+    display: flex;
+}
+
+.habilidades h3{
+    font-size: 120%;
+    margin: auto;
+
 }
 
 .container +.container{
