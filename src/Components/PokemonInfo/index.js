@@ -4,7 +4,7 @@ import './styles.css';
 import Header from '../Header';
 import Axios from 'axios';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+import ProgressBar from 'react-bootstrap/ProgressBar'
 
 const CoresPraCadaTipo = {
     bug: 'B1C12E',
@@ -35,11 +35,11 @@ export default class PokemonInfo extends React.Component{
         types: [],
         stats:{
             hp:'',
-            ataque:'',
-            defesa:'',
-            velocidade:'',
-            ataqEspecial:'',
-            defEspecial:''
+            attack:'',
+            defense:'',
+            speed:'',
+            specialAttack:'',
+            specialDefense:''
         },
         height:'',
         weight:'',
@@ -57,34 +57,33 @@ export default class PokemonInfo extends React.Component{
         const name = infoResponse.data.name;
         const imageurl = `https://pokeres.bastionbot.org/images/pokemon/${pokemonIndex}.png` 
 
-        let {hp,ataque,defesa,velocidade,ataqEspecial,defEspecial} = '';
+        var {hp,attack,defense,speed,specialAttack,specialDefense} = '';
 
         infoResponse.data.stats.map(stat => {
             switch(stat.stat.name){
                 case 'hp':
-                    hp = stat['base_stat'];
+                    hp = stat["base_stat"];
                 break;
 
                 case 'attack':
-                    ataque = stat['base_stat'];
+                    attack = stat['base_stat'];
                 break;
                     
                 case 'defense':
-                    defesa = stat['base_stat'];
+                    defense = stat['base_stat'];
                 break;
                 
                 case 'speed':
-                    velocidade = stat['base_stat'];
+                    speed = stat['base_stat'];
                     break;
                 
                 case 'special-attack':
-                    ataqEspecial = stat['base_stat'];
+                    specialAttack = stat['base_stat'];
                 break;    
                 
                 case 'special-defense':
-                    defEspecial = stat['base_stat'];
-                break;
-                default:            
+                    specialDefense = stat['base_stat'];
+                break;          
             }
         });
     
@@ -103,12 +102,12 @@ export default class PokemonInfo extends React.Component{
             especiePokemon,
             name,
             stats:{
-                hp:'',
-                ataque:'',
-                defesa:'',
-                velocidade:'',
-                ataqEspecial:'',
-                defEspecial:''
+                hp,
+                attack,
+                defense,
+                speed,
+                specialAttack,
+                specialDefense
             },
             height,
             weight,
@@ -124,27 +123,34 @@ export default class PokemonInfo extends React.Component{
            <div className='change-local'>
                 <Header/>
             </div>
-            {this.state.types.map(type =>(
+              {this.state.types.map(type =>(
                 <div className='container' style={{backgroundColor:`#${CoresPraCadaTipo[type]}`}}>
-                <div className='info'>
+                    <div className='info'>
 
-                    <Card>                
-                        <Card.Img                 
-                            variant="top"
-                            src={this.state.imageurl}
-                            />
-                        </Card>
-                    <h4>#{this.state.pokemonIndex}</h4>
-                    <h1>{this.state.name}</h1>    
+                        <Card>                
+                            <Card.Img                 
+                                variant="top"
+                                src={this.state.imageurl}
+                                />
+                            </Card>
 
-                    <div className="tipos">
-                        {this.state.types.map(type => (
-                            <span key={type}
-                                className="badge  badge-pill mr1">{type}</span>
-                        ))}
-                    </div>
-                </div>    
-            </div>
+                        <h6>Tamanho:{this.state.height}</h6>
+                        <h6>Peso:{this.state.weight}</h6>
+                        <h6>#{this.state.pokemonIndex}</h6>
+                        <h1>{this.state.name}</h1>
+                            
+
+                        <div className="tipos">
+                            {this.state.types.map(type => (
+                                <span key={type}
+                                    className="badge  badge-pill mr1">{type}</span>
+                            ))}
+                        </div>
+
+                        <h5>Hp:{this.state.stats.hp}</h5>
+                        <ProgressBar variant="success" now={this.state.stats.hp} />
+                    </div>    
+                </div>
             ))}
             
             

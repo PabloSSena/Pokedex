@@ -14,7 +14,7 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-	font-family: 'Russo One', sans-serif;
+    font-family: 'Russo One', sans-serif;
 
 }
 .info .card{
@@ -37,8 +37,35 @@
    color: white;
 }
 
-.info h4{
+.info h6{
+    font-size: 75%;
+    margin-top: 5px;
     display: flex;
-    justify-content: end;
+    justify-content: flex-start;
     opacity: 0.5;    
+}
+
+.info h5{
+    display: flex;
+    font-size: 90%;
+    text-shadow: 1px 1px black;
+    color: white;
+}
+
+.info .tipos span{
+    text-shadow: 1px 1px black;
+    color: white;
+}
+
+.badge{
+     font-size: 131% !important;
+}
+
+.progress{
+    height: 0.5rem !important; 
+}
+
+.container +.container{
+    display: flex;
+    opacity: 0;
 }
