@@ -100,7 +100,9 @@ export default class PokemonInfo extends React.Component{
     render(){
         return(
            <> 
-            <Header/>
+           <div className='change-local'>
+                <Header/>
+            </div>
             <div className='container'>
                 <div className='info'>
                     <Card>                
