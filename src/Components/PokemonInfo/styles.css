@@ -1,11 +1,28 @@
 .container{
     margin-top: 100px;
     display: grid;
-    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
-    grid-template-rows: 20vh 20vh 20vh;
+    grid-template-columns:repeat(3,minmax(350px,1fr));
+    grid-template-rows: 10vh 30vh 10vh 10vh;
+    grid-template-areas: "header  .           ."
+                         "view    barra   habilidades"
+                         "nome    outros      ."
+                         "tipo      .          .";
     background-color: #CDC9C9;
     opacity: 0.9;
 }
 
+.info{
+    display: flex;
+    flex-direction: column;
+}
+.info .card{
+    padding: 60px;
+    height: 10px !important;
+    cursor:unset;
+}
 
+.info .card-img, .card-img-bottom, .card-img-top {
+    height: 20vh !important;
+    width: 20vh !important;
+}
 

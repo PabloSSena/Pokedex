@@ -102,15 +102,18 @@ export default class PokemonInfo extends React.Component{
            <> 
             <Header/>
             <div className='container'>
-
-            <Card>                
-                <Card.Img                 
-                    variant="top"
-                    src={this.state.imageurl}
-                    />
-                </Card>
+                <div className='info'>
+                    <Card>                
+                        <Card.Img                 
+                            variant="top"
+                            src={this.state.imageurl}
+                            />
+                        </Card>
+                    <h1>{this.state.name}</h1>    
                 
+                </div>    
             </div>
+            
          
            </> 
         );
