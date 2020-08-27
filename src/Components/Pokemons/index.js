@@ -7,15 +7,19 @@ import './styles.css'
 export default class Pokemons extends React.Component{
     state = {
         url: "https://pokeapi.co/api/v2/pokemon/?limit=891",
+        typeurl:"https://pokeapi.co/api/v2/type/",
         pokemon:null,
-        pokebola:''
+        type:null
     }
 
     async componentDidMount(){
         const response = await axios.get(this.state.url)
+        const response2 = await axios.get(this.state.typeurl)
+
 
         this.setState({
-            pokemon:response.data['results'],  
+            pokemon:response.data['results'],
+            type:response2.data['']  
         });
 
         
