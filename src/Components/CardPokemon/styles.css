@@ -3,6 +3,7 @@
     background-color: #fff0 !important;
     border: 0 !important;
     align-items: center !important;
+    cursor: pointer;
 }
 
 .card-img, .card-img-bottom, .card-img-top{

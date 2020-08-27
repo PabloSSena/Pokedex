@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import CardPokemon from '../CardPokemon';
+import {Animated} from "react-animated-css";
 import './styles.css'
 
 export default class Pokemons extends React.Component{
@@ -18,15 +19,17 @@ export default class Pokemons extends React.Component{
         return(
             <>
                 {this.state.pokemon ? (
-                    <container>
-                        {this.state.pokemon.map(pokemon => (
-                            <CardPokemon
-                                key={pokemon.name}
-                                nomePokemon = {pokemon.name}
-                                imgURL = {pokemon.url}
-                            />
-                        ))} 
-                     </container>     
+                    <Animated animationIn="bounceInLeft" animationOut="fadeOut" isVisible={true}>
+                        <container>
+                            {this.state.pokemon.map(pokemon => (
+                                <CardPokemon
+                                    key={pokemon.name}
+                                    nomePokemon = {pokemon.name}
+                                    imgURL = {pokemon.url}
+                                />
+                            ))} 
+                        </container>   
+                    </Animated>      
                 ) :
                 (<h1>Carregando</h1>)}    
             </>    

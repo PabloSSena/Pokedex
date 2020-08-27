@@ -8,9 +8,7 @@ export default class CardPokemon extends React.Component{
     state = {
         nomePokemon: '',
         imageurl:'',
-        indexPokemon:'',
-        imageLoading:false,
-        toManyRequests:false
+        indexPokemon:''
     };
 
     componentDidMount(){
@@ -37,8 +35,6 @@ export default class CardPokemon extends React.Component{
             <Card style={{ width: '15rem'}}>                
              <Card.Img                 
                 variant="top"
-                onLoad={() => this.setState({imageLoading:true})}
-                onError={() => this.setState({toManyRequests:true})}
                 src={this.state.imageurl}
                 />
              <Card.Body>
