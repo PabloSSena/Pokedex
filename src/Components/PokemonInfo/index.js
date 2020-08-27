@@ -10,7 +10,6 @@ export default class PokemonInfo extends React.Component{
         pokemonIndex:'',
         imagemurl:'',
         types: [],
-        description:'',
         stats:{
             hp:'',
             ataque:'',
@@ -21,10 +20,10 @@ export default class PokemonInfo extends React.Component{
         },
         height:'',
         weight:'',
-        eggGroup:'',
         abilities:''
     
     }
+
     async componentDidMount(){
         const {pokemonIndex} = this.props.match.params;
 
@@ -63,13 +62,48 @@ export default class PokemonInfo extends React.Component{
                 case 'special-defense':
                     defEspecial = stat['base_stat'];
                 break;
-            
+                default:            
             }
+        });
+        
+        const height = infoResponse.data.height;
+        const weight = infoResponse.data.weight;
+        const types = infoResponse.data.types.map(type => type.type.name);
+        const abilities = infoResponse.data.abilities.map(ability => {
+            return(
+                ability.ability.name
+            );
+        });
+
+        this.setState({
+            imageurl,
+            pokemonIndex,
+            especiePokemon,
+            name,
+            stats:{
+                hp:'',
+                ataque:'',
+                defesa:'',
+                velocidade:'',
+                ataqEspecial:'',
+                defEspecial:''
+            },
+            height,
+            weight,
+            types,
+            abilities
+
         })
     }
+
     render(){
         return(
+           <> 
             <Header/>
+            <div className='container'>
+                
+            </div>
+           </> 
         );
     }
 }

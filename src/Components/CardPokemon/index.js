@@ -44,7 +44,7 @@ export default class CardPokemon extends React.Component{
                         <Card.Text>
                                                 
                         </Card.Text>
-                        <Button variant="primary">Mais info</Button>
+                        <Button variant="primary">Informações</Button>
                     </Card.Body>
                 </Card>
             </Link>         
