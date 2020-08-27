@@ -1,8 +1,10 @@
-import React from 'react';
+import React,{ImageBackground} from 'react';
 import '../../styles/global.css';
 import './styles.css';
 import Header from '../Header';
 import Axios from 'axios';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
 export default class PokemonInfo extends React.Component{
     state = {
@@ -21,7 +23,6 @@ export default class PokemonInfo extends React.Component{
         height:'',
         weight:'',
         abilities:''
-    
     }
 
     async componentDidMount(){
@@ -65,14 +66,14 @@ export default class PokemonInfo extends React.Component{
                 default:            
             }
         });
-        
+    
         const height = infoResponse.data.height;
         const weight = infoResponse.data.weight;
         const types = infoResponse.data.types.map(type => type.type.name);
         const abilities = infoResponse.data.abilities.map(ability => {
             return(
                 ability.ability.name
-            );
+            );    
         });
 
         this.setState({
@@ -101,8 +102,16 @@ export default class PokemonInfo extends React.Component{
            <> 
             <Header/>
             <div className='container'>
+
+            <Card>                
+                <Card.Img                 
+                    variant="top"
+                    src={this.state.imageurl}
+                    />
+                </Card>
                 
             </div>
+         
            </> 
         );
     }

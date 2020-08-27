@@ -1,0 +1,11 @@
+.container{
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    grid-template-rows: 20vh 20vh 20vh;
+    background-color: #CDC9C9;
+    opacity: 0.9;
+}
+
+
+
