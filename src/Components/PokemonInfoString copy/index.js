@@ -97,13 +97,13 @@ export default class PokemonInfo extends React.Component{
         const height = infoResponse.data.height;
         const weight = infoResponse.data.weight;
         const types = infoResponse.data.types.map(type => type.type.name);
-        const abilitieUrl = infoResponse.data.abilities.map(abilitie =>{
+
+        const indexability = infoResponse.data.abilities.map(abilitie =>{
             return(
-                abilitie.ability.url
+                abilitie.ability.url.split('/')
             );
         })
-        
-        console.log(abilitieUrl);
+        console.log(indexability);
         const abilities = infoResponse.data.abilities.map(ability => {
             return(
                 ability.ability.name
