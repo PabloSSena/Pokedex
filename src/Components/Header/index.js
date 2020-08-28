@@ -1,12 +1,15 @@
 import React from 'react';
 import './styles.css';
+import { Link } from 'react-router-dom';
 
 export default class Header extends React.Component{
     render(){
         return(
-            <header>
-                <h1>Pokédex</h1>
-            </header>
+            <Link to={"/"}>
+                <header>
+                    <h1>Pokédex</h1>
+                </header>
+            </Link>
         );
     }
 }

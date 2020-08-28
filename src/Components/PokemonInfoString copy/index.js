@@ -129,9 +129,9 @@ export default class PokemonInfo extends React.Component{
         return(
            <> 
            <div className='change-local'>
-               <Link to={"/"}>
+            
                 <Header/>
-                </Link>
+       
             </div>
               {this.state.types.map(type =>(
                 <div className='container' style={{backgroundColor:`#${CoresPraCadaTipo[type]}`}}>

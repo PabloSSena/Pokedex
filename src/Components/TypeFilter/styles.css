@@ -1,3 +1,7 @@
+h1{
+    color: white !important;
+}
+
 .presentation{
     margin-bottom: 80px;
     display: grid;
@@ -6,12 +10,18 @@
 }
 
 .presentation span{
-    font-family: 'Do Hyeon', sans-serif !important;
+    font-family: 'Do Hyeon', sans-serif;
 }
 
-.explicao{
-    
+.explicacao{
+    margin-top: 50px;
+    font-family: 'Do Hyeon', sans-serif ;
+    text-align: center;
+    width: 100%;
+    background-color: black;
+    opacity: 0.8;
 }
+
 
 @media(max-width:800px){
     
