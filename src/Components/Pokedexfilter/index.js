@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React,{useEffect, useState} from 'react';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
@@ -6,47 +6,35 @@ import Axios from 'axios';
 import './styles.css';
 
 
-const App = () =>{
-    const pegarPokemon = async () =>{
-        const vetor=[];
+const PokedexFilter = () =>{
+  var pegando='';
 
-        try{
-          const pokemonUrl = 'https://pokeapi.co/api/v2/pokemon/pikachu';
-          const res = await Axios.get(pokemonUrl)
-          vetor.push()
-          console.log(res)
-        } catch(e){
-          console.log(e)
-        }
-    };
-
-    const handleChange = (e) => {
-      const pokemon = e.target.value.toLowerCase()
-      console.log(pokemon)
-    }
-
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      getPokemon();
-    }
-
+  function pegarNome(){
+    pegando = document.getElementById('pokemon').value;
+    document.getElementById('Digitado').innerHTML = pegando;
+  }
+   
     return(
         <pokedexfilter>
           <h1>Qual pokemon deseja<br/> encontrar?</h1>
+          <form>
           <inputcontrol>
-            <InputGroup className="mb-3" onSubmit={handleSubmit}>
-            <FormControl
-            placeholder="Nome do pokemon"
-            aria-label="Nome do pokemon"
-            aria-describedby="basic-addon2"
-            />
-            <InputGroup.Append onChange={handleChange}>
-            <Button variant="outline-secondary">Pesquisar</Button>
-            </InputGroup.Append>
-            </InputGroup>
+              <InputGroup className="mb-3">
+              <FormControl id='pokemon'
+              placeholder="Nome do pokemon"
+              aria-label="Nome do pokemon"
+              aria-describedby="basic-addon2"
+              />
+              <InputGroup.Append>
+              <Button variant="outline-secondary" onClick={pegarNome} >Pesquisar</Button>
+              </InputGroup.Append>
+              </InputGroup>
           </inputcontrol>  
-        </pokedexfilter>  
+          </form>
+          <h1 id="Digitado"></h1>
+        </pokedexfilter> 
+         
     );
 }
 
-export default App;
+export default PokedexFilter;
