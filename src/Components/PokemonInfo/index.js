@@ -94,9 +94,10 @@ export default class PokemonInfo extends React.Component{
         const abilities = infoResponse.data.abilities.map(ability => {
             return(
                 ability.ability.name
-            );    
+            );      
         });
 
+        console.log(infoResponse.data.types)
         this.setState({
             imageurl,
             pokemonIndex,

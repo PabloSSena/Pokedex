@@ -10,17 +10,20 @@ export default class CardPokemon extends React.Component{
         nomePokemon: '',
         imageurl:'',
         indexPokemon:'',
-        pokemons:[]     
+        pokemons:'',
+        pokenames:[]    
     };
 
     async componentDidMount(){
         const {pokemontype} = this.props.match.params;
 
-        const url = "https://pokeapi.co/api/v2/type/";
+        const url = `https://pokeapi.co/api/v2/type/${pokemontype}/`;
         const infos = await Axios.get(url);
 
        
-        const pokemons = infos.data.name;
+        const pokemons = infos.data.pokemon;
+        const pokenames = infos.data.pokemon.map(pokemon => pokemon.pokemon.name);
+        console.log(pokenames);
         this.setState({
             pokemons
         });
@@ -30,19 +33,31 @@ export default class CardPokemon extends React.Component{
     return(
     <> 
                 <container>
+                {this.state.pokenames.map(pokemon =>(
+                                <span key={pokemon}{...pokemon}></span>
+                            ))}
                 <Card style={{ width: '15rem'}}>                
                 {/* <Card.Img                 
                     variant="top"
                     src={this.state.imageurl}
                     /> */}
                     <Card.Body>
-                        <Card.Title>{this.state.pokemons.name}</Card.Title>
+                        <Card.Title>
+                            <span>{this.state.pokenames[1]}</span>
+                            {/* {this.state.pokenames.map(pokemon =>(
+                                <span key={pokemon}{...pokemon}></span>
+                            ))} */}
+                        </Card.Title>
                         <Card.Text>
                                                 
                         </Card.Text>
                         <Button variant="primary">Informações</Button>
                     </Card.Body>
-                </Card>         
+                </Card>
+                
+                {this.state.pokenames.map(pokemon =>(
+                                <h1 key={pokemon}{...pokemon}></h1>
+                            ))}         
         </container>
             
        
