@@ -2,6 +2,7 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import Header from '../Header'
 import './styles.css'
 import Axios from 'axios';
 
@@ -11,7 +12,9 @@ export default class CardPokemon extends React.Component{
         imageurl:'',
         indexPokemon:'',
         pokemons:'',
-        pokenames:[]    
+        pokenames:[],
+        pokepictures:'',
+        pokemontype:''    
     };
 
     async componentDidMount(){
@@ -23,35 +26,35 @@ export default class CardPokemon extends React.Component{
        
         const pokemons = infos.data.pokemon;
         const pokenames = infos.data.pokemon.map(pokemon => pokemon.pokemon.name);
+    
+
         console.log(pokenames);
         this.setState({
             pokemons,
-            pokenames
+            pokenames,
+            pokemontype
+        
         });
     }
 
     render(){
     return(
-    <>      
-    
-                <container>
-                {this.state.pokenames.map(pokemon =>(
-                <Card style={{ width: '15rem'}}>                
-                {/* <Card.Img                 
-                    variant="top"
-                    src={this.state.imageurl}
-                    /> */}
-                    <Card.Body>
-                        <Card.Title>
-                          
-                            <span key={pokemon}>{pokemon}</span>
-                            
-                        </Card.Title>
-                        <Card.Text>
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
-            ))}
+    <>  
+        <Header/>
+
+        <div className='explicacao'>
+            <h1>Todos os Pokémons do tipo {this.state.pokemontype}:</h1>
+        </div>
+        <container>
+            {this.state.pokenames.map(pokemon =>(
+                <>
+                <div className='presentation'>
+                    <img src={`https://img.pokemondb.net/sprites/x-y/normal/${pokemon}.png`}/>
+                    <span key={pokemon}>{pokemon}</span>
+                </div>
+                
+                </>
+        ))}
         </container>
             
        
