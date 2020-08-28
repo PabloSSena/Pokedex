@@ -3,38 +3,47 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 import Axios from 'axios';
+import { Link } from 'react-router-dom';
+
 import './styles.css';
+import { render } from '@testing-library/react';
 
 
-const PokedexFilter = () =>{
-  var pegando='';
+export default class PokedexFilterString extends React.Component{ 
+    constructor(){
+      super();
 
-  function pegarNome(){
-    pegando = document.getElementById('pokemon').value;
-    document.getElementById('Digitado').innerHTML = pegando;
-  }
-   
+      this.state = {
+        nome:"",
+      }
+
+      this.onChange = (e) =>{
+        this.setState({nome:e.target.value});
+        
+      }
+    }
+    
+    render(){
     return(
         <pokedexfilter>
           <h1>Qual pokemon deseja<br/> encontrar?</h1>
-          <form>
+        
           <inputcontrol>
               <InputGroup className="mb-3">
-              <FormControl id='pokemon'
-              placeholder="Nome do pokemon"
+              <FormControl onChange={this.onChange} nome='pokemon'
+              placeholder="Nome do pokemon !!Apenas letras minusculas!!"
               aria-label="Nome do pokemon"
               aria-describedby="basic-addon2"
               />
               <InputGroup.Append>
-              <Button variant="outline-secondary" onClick={pegarNome} >Pesquisar</Button>
+              <Link to={`/pokemoninfoString/${this.state.nome}`}>
+                  <Button variant="outline-secondary" >Pesquisar</Button>
+              </Link>
               </InputGroup.Append>
               </InputGroup>
           </inputcontrol>  
-          </form>
-          <h1 id="Digitado"></h1>
         </pokedexfilter> 
          
     );
+    }  
 }
-
-export default PokedexFilter;
