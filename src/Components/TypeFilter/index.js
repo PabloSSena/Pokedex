@@ -25,17 +25,17 @@ export default class CardPokemon extends React.Component{
         const pokenames = infos.data.pokemon.map(pokemon => pokemon.pokemon.name);
         console.log(pokenames);
         this.setState({
-            pokemons
+            pokemons,
+            pokenames
         });
     }
 
     render(){
     return(
-    <> 
+    <>      
+    
                 <container>
                 {this.state.pokenames.map(pokemon =>(
-                                <span key={pokemon}{...pokemon}></span>
-                            ))}
                 <Card style={{ width: '15rem'}}>                
                 {/* <Card.Img                 
                     variant="top"
@@ -43,21 +43,15 @@ export default class CardPokemon extends React.Component{
                     /> */}
                     <Card.Body>
                         <Card.Title>
-                            <span>{this.state.pokenames[1]}</span>
-                            {/* {this.state.pokenames.map(pokemon =>(
-                                <span key={pokemon}{...pokemon}></span>
-                            ))} */}
+                          
+                            <span key={pokemon}>{pokemon}</span>
+                            
                         </Card.Title>
                         <Card.Text>
-                                                
                         </Card.Text>
-                        <Button variant="primary">Informações</Button>
                     </Card.Body>
                 </Card>
-                
-                {this.state.pokenames.map(pokemon =>(
-                                <h1 key={pokemon}{...pokemon}></h1>
-                            ))}         
+            ))}
         </container>
             
        
