@@ -29,6 +29,8 @@ const CoresPraCadaTipo = {
   };
 
 export default class PokemonInfo extends React.Component{
+
+    
     state = {
         name:'',
         pokemonIndex:'',
@@ -45,18 +47,17 @@ export default class PokemonInfo extends React.Component{
         height:'',
         weight:'',
         abilities:'',
-        order:''
+        order:'',
+        outsider:''
     }
 
     async componentDidMount(){
         const {pokemonIndex} = this.props.match.params;
 
         const infoUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonIndex}/`;
-        const imgGetter = `https://pokeapi.co/api/v2/pokemon/${pokemonIndex}`
         const especiePokemon = `https://pokeapi.co/api/v2/pokemon-species/${pokemonIndex}/`;
 
         const infoResponse = await Axios.get(infoUrl);
-        const savior = await Axios.get(imgGetter);
 
         const name = infoResponse.data.name;
         const order = infoResponse.data.id;
@@ -100,15 +101,25 @@ export default class PokemonInfo extends React.Component{
 
         const indexability = infoResponse.data.abilities.map(abilitie =>{
             return(
-                abilitie.ability.url.split('/')
+                abilitie.ability.url.split('/')[6]
             );
         })
-        console.log(indexability);
+        
         const abilities = infoResponse.data.abilities.map(ability => {
             return(
                 ability.ability.name
             );    
         });
+
+        const attackurl = `https://pokeapi.co/api/v2/ability/${indexability[0]}/`;
+        const infoattack =  await Axios.get(attackurl);
+
+        const short = infoattack.data.effect_entries.map((short) =>{
+            return(
+                short.short_effect  
+            );
+        })
+        const outsider = short[1];
 
         this.setState({
             imageurl,
@@ -127,10 +138,13 @@ export default class PokemonInfo extends React.Component{
             weight,
             types,
             abilities,
-            order
+            order,
+            outsider
 
         })
+        
     }
+    
 
     render(){
         return(
@@ -179,17 +193,15 @@ export default class PokemonInfo extends React.Component{
                         <ProgressBar variant="info" now={this.state.stats.speed} />
 
                         <h4>Habilidades</h4>
-                        <div className='habilidades'>
+                        <div className='habilidades'>   
                             <h3>{this.state.abilities[0]}</h3>
                             <h3>{this.state.abilities[1]}</h3>
                         </div>
-
                     </div>    
                 </div>
+                                                        
             ))}
-            
-            
-         
+              
            </> 
         );
     }
