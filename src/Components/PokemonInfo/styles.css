@@ -149,6 +149,12 @@
 }
 
 @media (min-width:700px) and (max-width:1100px){
+    info .tipos span{
+        text-shadow: none;
+        font-family: 'Do Hyeon', sans-serif !important;
+     
+    }
+
     .info h6{
         justify-content: end;
     }
