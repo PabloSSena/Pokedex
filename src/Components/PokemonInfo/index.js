@@ -114,7 +114,6 @@ export default class PokemonInfo extends React.Component{
             weight,
             types,
             abilities
-
         })
     }
 
@@ -145,8 +144,11 @@ export default class PokemonInfo extends React.Component{
 
                         <div className="tipos">
                             {this.state.types.map(type => (
-                                <span key={type}
+                                <Link to={`/type/${type}`}>
+                                    <span 
+                                    key={type}
                                     className="badge  badge-pill mr1">{type}</span>
+                                </Link>
                             ))}
                         </div>
 

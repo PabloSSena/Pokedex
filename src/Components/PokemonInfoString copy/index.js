@@ -44,19 +44,25 @@ export default class PokemonInfo extends React.Component{
         },
         height:'',
         weight:'',
-        abilities:''
+        abilities:'',
+        order:''
     }
 
     async componentDidMount(){
         const {pokemonIndex} = this.props.match.params;
 
         const infoUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonIndex}/`;
+        const imgGetter = `https://pokeapi.co/api/v2/pokemon/${pokemonIndex}`
         const especiePokemon = `https://pokeapi.co/api/v2/pokemon-species/${pokemonIndex}/`;
 
         const infoResponse = await Axios.get(infoUrl);
+        const savior = await Axios.get(imgGetter);
 
         const name = infoResponse.data.name;
-        const imageurl = `https://pokeres.bastionbot.org/images/pokemon/${pokemonIndex}.png` 
+        const order = infoResponse.data.id;
+        const imageurl = `https://pokeres.bastionbot.org/images/pokemon/${order}.png` 
+        
+        console.log(imageurl) 
 
         var {hp,attack,defense,speed,specialAttack,specialDefense} = '';
 
@@ -113,7 +119,8 @@ export default class PokemonInfo extends React.Component{
             height,
             weight,
             types,
-            abilities
+            abilities,
+            order
 
         })
     }
@@ -139,14 +146,16 @@ export default class PokemonInfo extends React.Component{
 
                         <h6>Tamanho:{this.state.height}</h6>
                         <h6>Peso:{this.state.weight}</h6>
-                        <h6>#{this.state.pokemonIndex}</h6>
+                        <h6>#{this.state.order}</h6>
                         <h1>{this.state.name}</h1>
                             
 
                         <div className="tipos">
                             {this.state.types.map(type => (
+                              <Link to={`/type/${type}`}>
                                 <span key={type}
                                     className="badge  badge-pill mr1">{type}</span>
+                              </Link>        
                             ))}
                         </div>
 

@@ -2,11 +2,8 @@ import React,{useEffect, useState} from 'react';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
-import Axios from 'axios';
 import { Link } from 'react-router-dom';
-
 import './styles.css';
-import { render } from '@testing-library/react';
 
 
 export default class PokedexFilterString extends React.Component{ 
