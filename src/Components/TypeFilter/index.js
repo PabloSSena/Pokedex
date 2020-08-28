@@ -49,7 +49,7 @@ export default class CardPokemon extends React.Component{
         <container>
             {this.state.pokenames.map(pokemon =>(
                 <>
-                <Link to={`/pokemoninfo/${pokemon}`}>
+                <Link to={`/pokemoninfoString/${pokemon}`}>
                 <div className='presentation'>
                     <img src={`https://img.pokemondb.net/sprites/x-y/normal/${pokemon}.png`}/>
                     <span key={pokemon}>{pokemon}</span>
