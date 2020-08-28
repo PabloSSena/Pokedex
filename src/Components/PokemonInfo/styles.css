@@ -74,6 +74,10 @@
     height: 0.5rem !important; 
 }
 
+.change-local .Link:link{
+    text-decoration: none;
+}
+
 .habilidades{
     text-shadow: 1px 1px black;
     color: white;
