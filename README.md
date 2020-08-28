@@ -1,9 +1,11 @@
 ``
 Criei esse projeto usando [create-react-app](https://create-react-app.dev/docs/getting-started)
  
-## Dependencias do projeto
+Precisa do node_modules (
+npm install node-modules
+)
 
-Para rodar certinho o projeto precisa dessas dependencias 
+## Dependencias do projeto
 
 Duas versões do Bootstrap (
     npm install bootstrap
@@ -28,6 +30,12 @@ Esse projeto usa a v10.19.0
 
 ## Para iniciar ele no navegador
 
-É só usar "npm start" depois de ja estar com tudo instalado
+É só usar "npm start" com tudo ja instalado
 
+## Usando
+Na pagina inicial tem alguns pokemons (Não todos da API porque ficava muito pesado) você pode clicar neles pra ver informações sobre eles ou pode escrever o nome do pokemon que quiser(Com letra minuscula) e clicar no botão de pesquisar.
+
+Na pagina de informações do pokemon você pode clicar no tipo que ele é pra ver todos os pokemons daquele mesmo tipo (Dentro dessa pagina tambem é possivel clicar para ver informaçãoes).
+
+Toda pagina tem um header em cima escrito Pokedex é só clicar la pra voltar para a inicial.
 ..
