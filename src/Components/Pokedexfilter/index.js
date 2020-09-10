@@ -11,11 +11,16 @@ export default class PokedexFilterString extends React.Component{
       super();
 
       this.state = {
-        nome:"",
+        novo:"",
       }
 
       this.onChange = (e) =>{
-        this.setState({nome:e.target.value});
+        const antigo = e.target.value;
+        const novo = antigo.toLowerCase();
+
+        this.setState({
+          novo
+        });
         
       }
     }
@@ -28,12 +33,12 @@ export default class PokedexFilterString extends React.Component{
           <inputcontrol>
               <InputGroup className="mb-3">
               <FormControl onChange={this.onChange} nome='pokemon'
-              placeholder="Nome do pokemon !!Apenas letras minusculas!!"
+              placeholder="Nome do pokemon"
               aria-label="Nome do pokemon"
               aria-describedby="basic-addon2"
               />
               <InputGroup.Append>
-              <Link to={`/pokemoninfoString/${this.state.nome}`}>
+              <Link to={`/pokemoninfoString/${this.state.novo}`}>
                   <Button variant="outline-secondary" >Pesquisar</Button>
               </Link>
               </InputGroup.Append>
